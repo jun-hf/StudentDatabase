@@ -12,13 +12,9 @@ CREATE TABLE student (
 
 DESCRIBE student; 
 
--- Adding and dropping a column
-
 ALTER TABLE student ADD gpa DECIMAL; 
 
 ALTER TABLE student DROP COLUMN gpa;
-
--- Inserting data
 
 INSERT INTO student(name, major) VALUES('Jack', 'Biology');
 INSERT INTO student(name, major) VALUES('Alice', 'Physics');
@@ -57,4 +53,16 @@ SELECT student.name, student.major
 FROM student
 ORDER BY student_id DESC;
 
+-- Querying by major then if same major by student id
+
+SELECT *
+FROM student
+ORDER BY major, student_id
+LIMIT 4;
+
+-- Querying item where is in ()
+
+SELECT *
+FROM student
+WHERE name IN ('Jack', 'Mike');
 
